@@ -58,7 +58,7 @@ export default function ChannelCard({channel, messages}) {
     return (
         <div className='m-5' key={channel.id}>
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={`/${channel.name.toLowerCase()}.jpeg`} />
+                <Card.Img variant="top" src={`/${channel.name.toLowerCase()}.jpg`} />
                 <Card.Body>
                     <Card.Title>{channel.name}</Card.Title>
                     <Card.Text>{channel.description}</Card.Text>
