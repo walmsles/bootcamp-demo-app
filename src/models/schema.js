@@ -17,6 +17,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "value": {
+                    "name": "value",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "channelID": {
                     "name": "channelID",
                     "isArray": false,
@@ -24,12 +31,20 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "value": {
-                    "name": "value",
+                "Channel": {
+                    "name": "Channel",
                     "isArray": false,
-                    "type": "Int",
+                    "type": {
+                        "model": "Channel"
+                    },
                     "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetNames": [
+                            "channelID"
+                        ]
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -118,7 +133,7 @@ export const schema = {
                     "association": {
                         "connectionType": "HAS_MANY",
                         "associatedWith": [
-                            "channelID"
+                            "Channel"
                         ]
                     }
                 },
@@ -168,5 +183,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "c1bd3f2ebf3c58fd805c15c07c9cbf3b"
+    "version": "1c62af55695a9271c03d9522d172bcc5"
 };

@@ -6,8 +6,19 @@ export const onCreateMessage = /* GraphQL */ `
     onCreateMessage(filter: $filter) {
       id
       message
-      channelID
       value
+      channelID
+      Channel {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -22,8 +33,19 @@ export const onUpdateMessage = /* GraphQL */ `
     onUpdateMessage(filter: $filter) {
       id
       message
-      channelID
       value
+      channelID
+      Channel {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -38,8 +60,19 @@ export const onDeleteMessage = /* GraphQL */ `
     onDeleteMessage(filter: $filter) {
       id
       message
-      channelID
       value
+      channelID
+      Channel {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version

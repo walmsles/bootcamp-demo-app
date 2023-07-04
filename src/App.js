@@ -1,8 +1,9 @@
 import logo from './bootcamp-icon.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { API } from 'aws-amplify';
+import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from './graphql/queries';
+import * as subscriptions from './graphql/subscriptions';
 import React, { useEffect, useState } from 'react';
 import ChannelCard from './components/ChannelCard';
 
@@ -18,11 +19,17 @@ function App() {
     fetchChannels()
   }, [])
 
+  const sub = API.graphql(
+    graphqlOperation(subscriptions.onUpdateMessage)
+  ).subscribe({
+    next: ({ provider, value }) => fetchMessages(),
+    error: (error) => console.warn(error)
+  });
+
   async function fetchMessages() {
       try {
           const messageData = await API.graphql({query: queries.listMessages})
-          const messages = messageData.data.listMessages.items;
-          console.log(messages);
+          const messages = messageData.data.listMessages.items.sort((a,b) => a.message - b.message);
           setMessages(messages)
       } catch(err) {
           console.log(err)
@@ -34,7 +41,6 @@ function App() {
     try {
       const channelData = await API.graphql({query: queries.listChannels})
       const channels = channelData.data.listChannels.items;
-
       setChannels(channels)
     } catch (err) {
       console.log(err);

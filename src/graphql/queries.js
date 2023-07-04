@@ -6,8 +6,19 @@ export const getMessage = /* GraphQL */ `
     getMessage(id: $id) {
       id
       message
-      channelID
       value
+      channelID
+      Channel {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -27,8 +38,8 @@ export const listMessages = /* GraphQL */ `
       items {
         id
         message
-        channelID
         value
+        channelID
         createdAt
         updatedAt
         _version
@@ -58,8 +69,8 @@ export const syncMessages = /* GraphQL */ `
       items {
         id
         message
-        channelID
         value
+        channelID
         createdAt
         updatedAt
         _version
@@ -91,8 +102,8 @@ export const messagesByChannelID = /* GraphQL */ `
       items {
         id
         message
-        channelID
         value
+        channelID
         createdAt
         updatedAt
         _version

@@ -1,6 +1,6 @@
 import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier } from "@aws-amplify/datastore";
 // @ts-ignore
-import { LazyLoading, LazyLoadingDisabled, AsyncCollection } from "@aws-amplify/datastore";
+import { LazyLoading, LazyLoadingDisabled, AsyncItem, AsyncCollection } from "@aws-amplify/datastore";
 
 
 
@@ -13,8 +13,9 @@ type EagerMessage = {
   };
   readonly id: string;
   readonly message?: number | null;
-  readonly channelID: string;
   readonly value?: number | null;
+  readonly channelID: string;
+  readonly Channel?: Channel | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -26,8 +27,9 @@ type LazyMessage = {
   };
   readonly id: string;
   readonly message?: number | null;
-  readonly channelID: string;
   readonly value?: number | null;
+  readonly channelID: string;
+  readonly Channel: AsyncItem<Channel | undefined>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
