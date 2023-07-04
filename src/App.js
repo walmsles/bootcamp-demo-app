@@ -58,7 +58,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         Technical Bootcamp 2023 - Amplify Demo <br/>
         How am I feeling Today?
-        <Button onClick={signOut}>Sign out</Button>
+        {/* <Button onClick={signOut}>Sign out</Button> */}
       </header>
       <div className="container d-flex ms-auto flex-wrap">
         <div className="mx-auto d-flex flex-wrap">
