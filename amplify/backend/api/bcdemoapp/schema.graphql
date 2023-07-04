@@ -1,0 +1,13 @@
+type Message @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  message: Int
+  timestamp: Int
+  channelID: ID! @index(name: "byChannel")
+}
+
+type Channel @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  description: String
+  Messages: [Message] @hasMany(indexName: "byChannel", fields: ["id"])
+}
