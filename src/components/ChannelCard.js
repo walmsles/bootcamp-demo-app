@@ -52,9 +52,6 @@ async function messageClick(id, index) {
     }
 
     console.log(newMessage)
-    // const newItem = await API.graphql(query: queries.newMessage 
-    // console.log(newItem)
-  
   }
 
 export default function ChannelCard({channel}) {
