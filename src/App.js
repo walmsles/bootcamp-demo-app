@@ -9,7 +9,8 @@ import ChannelCard from './components/ChannelCard';
 import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 
-function App({ signOut, user }) {
+// function App({ signOut, user }) {
+function App() {
   const [channels, setChannels] = useState([]);
   const [messages, setMessages] = useState([]);
 
