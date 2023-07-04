@@ -1,8 +1,8 @@
 import { API } from 'aws-amplify';
 import Card from 'react-bootstrap/Card';
-import { graphqlOperation } from 'aws-amplify';
 import * as mutations from '../graphql/mutations';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+
 
 const emojis = [
     { 
@@ -58,7 +58,7 @@ export default function ChannelCard({channel, messages}) {
     return (
         <div className='m-5' key={channel.id}>
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={`https://picsum.photos/seed/${channel.id}/200/100`} />
+                <Card.Img variant="top" src={`/${channel.name.toLowerCase()}.jpeg`} />
                 <Card.Body>
                     <Card.Title>{channel.name}</Card.Title>
                     <Card.Text>{channel.description}</Card.Text>
