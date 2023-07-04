@@ -13,8 +13,8 @@ type EagerMessage = {
   };
   readonly id: string;
   readonly message?: number | null;
-  readonly timestamp?: number | null;
   readonly channelID: string;
+  readonly value?: number | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -26,8 +26,8 @@ type LazyMessage = {
   };
   readonly id: string;
   readonly message?: number | null;
-  readonly timestamp?: number | null;
   readonly channelID: string;
+  readonly value?: number | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

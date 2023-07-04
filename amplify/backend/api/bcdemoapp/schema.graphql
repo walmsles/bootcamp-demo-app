@@ -1,8 +1,8 @@
 type Message @model @auth(rules: [{allow: public}]) {
   id: ID!
   message: Int
-  timestamp: Int
   channelID: ID! @index(name: "byChannel")
+  value: Int
 }
 
 type Channel @model @auth(rules: [{allow: public}]) {
@@ -11,3 +11,4 @@ type Channel @model @auth(rules: [{allow: public}]) {
   description: String
   Messages: [Message] @hasMany(indexName: "byChannel", fields: ["id"])
 }
+ 

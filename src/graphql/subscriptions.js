@@ -6,8 +6,8 @@ export const onCreateMessage = /* GraphQL */ `
     onCreateMessage(filter: $filter) {
       id
       message
-      timestamp
       channelID
+      value
       createdAt
       updatedAt
       _version
@@ -22,8 +22,8 @@ export const onUpdateMessage = /* GraphQL */ `
     onUpdateMessage(filter: $filter) {
       id
       message
-      timestamp
       channelID
+      value
       createdAt
       updatedAt
       _version
@@ -38,8 +38,8 @@ export const onDeleteMessage = /* GraphQL */ `
     onDeleteMessage(filter: $filter) {
       id
       message
-      timestamp
       channelID
+      value
       createdAt
       updatedAt
       _version

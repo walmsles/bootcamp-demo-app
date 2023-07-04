@@ -1,9 +1,8 @@
-
+import { API } from 'aws-amplify';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import { v4 as uuidv4 } from 'uuid';
 import { graphqlOperation } from 'aws-amplify';
 import * as queries from '../graphql/queries';
+import React, { useEffect, useState } from 'react';
 
 const emojis = [
     { 
@@ -12,49 +11,38 @@ const emojis = [
     },
     { 
         icon:'😎',
-        text: 'I\'m Cool!',
-        value: 5,
+        text: 'We Got This!',
+        value: 0,
     },
     { 
         icon:'🤯',
         text: 'Brain ... hurts',
-        value: 2,
+        value: 0,
     },
     { 
         icon:'😍',
         text: 'Loving it!',
-        value: 2,
+        value: 0,
     },
     { 
         icon:'🙁',
         text: 'Its hard',
-        value: 2,
+        value: 0,
     },
     { 
         icon:'🙈',
         text: 'Can\'t Look!',
-        value: 2,
+        value: 0,
     },  
 ];
 
 async function messageClick(id, index) {
-    const newMessage = {
-        id: uuidv4(),
-        message: index,
-        timestamp: Date.now(),
-        channelID: id,
-        createdAt: Date.now(),
-        updatedAt: Date.now(),
-        _version: 1,
-        _deleted: false,
-        _lastChangedAt: Date.now(),
-        __typename: 'Message'
-    }
+    // need an endpoint to increment the valie of the emoji message in DDB
 
-    console.log(newMessage)
-  }
+}
 
-export default function ChannelCard({channel}) {
+export default function ChannelCard({channel, messages}) {
+   
     return (
         <div className='m-5' key={channel.id}>
             <Card style={{ width: '18rem' }}>
@@ -64,15 +52,16 @@ export default function ChannelCard({channel}) {
                     <Card.Text>{channel.description}</Card.Text>
                     <ul className="list-group list-group-flush">  
                         {
-                            emojis.map((emoji, index) => (
-                                <li key={`${channel.id}-0`} className="list-group-item">
-                                    { emoji.icon &&                                  
+                            messages.map((message, index) => (
+                                message.channelID === channel.id && <li key={`${channel.id}-${index}`} className="list-group-item">
+                                    {
+                                        emojis[message.message].icon &&                                  
                                             <button
-                                                className='btn btn-block border'
-                                                onClick={(e) => { messageClick(channel.id, index)}}
+                                                className='btn btn-light'
+                                                onClick={(e) => { messageClick(channel.id, message.index)}}
                                             >
-                                               <span className='fs-2'>{emoji.icon}</span><span className='mx-4 fs-2'>{emoji.value}</span>
-                                               <br/><span>{emoji.text}</span>
+                                               <span className='fs-2'>{emojis[message.message].icon}</span><span className='mx-4 fs-2'>{messages.value}</span>
+                                               <br/><span>{emojis[message.message].text}</span>
                                             </button>
                                     }
                                 </li>

@@ -17,18 +17,18 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "timestamp": {
-                    "name": "timestamp",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "channelID": {
                     "name": "channelID",
                     "isArray": false,
                     "type": "ID",
                     "isRequired": true,
+                    "attributes": []
+                },
+                "value": {
+                    "name": "value",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
                     "attributes": []
                 },
                 "createdAt": {
@@ -168,5 +168,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "b1c1f5c0967082dd74067603dd184c77"
+    "version": "c1bd3f2ebf3c58fd805c15c07c9cbf3b"
 };

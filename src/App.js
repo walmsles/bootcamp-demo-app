@@ -8,10 +8,26 @@ import ChannelCard from './components/ChannelCard';
 
 function App() {
   const [channels, setChannels] = useState([]);
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+      fetchMessages()
+    }, [])
 
   useEffect(() => {
     fetchChannels()
   }, [])
+
+  async function fetchMessages() {
+      try {
+          const messageData = await API.graphql({query: queries.listMessages})
+          const messages = messageData.data.listMessages.items;
+          console.log(messages);
+          setMessages(messages)
+      } catch(err) {
+          console.log(err)
+      }
+  } 
 
   async function fetchChannels() {
     // Load all channel data using Amplify Data Store
@@ -39,6 +55,7 @@ function App() {
           channels.map((channel, index) => (
             <ChannelCard key={`${channel.id}-card`} className="mx-auto"
               channel={channel}
+              messages={messages}
             />
           ))
         } 
