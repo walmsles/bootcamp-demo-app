@@ -60,7 +60,7 @@ export default function ChannelCard({channel, messages}) {
                                                 className='btn btn-light'
                                                 onClick={(e) => { messageClick(channel.id, message.index)}}
                                             >
-                                               <span className='fs-2'>{emojis[message.message].icon}</span><span className='mx-4 fs-2'>{messages.value}</span>
+                                               <span className='fs-2'>{emojis[message.message].icon}</span><span className='mx-4 fs-2'>{message.value}</span>
                                                <br/><span>{emojis[message.message].text}</span>
                                             </button>
                                     }
