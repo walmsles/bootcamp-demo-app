@@ -38,18 +38,18 @@ const emojis = [
 
 async function messageClick(id, index) {
     // need an endpoint to increment the valie of the emoji message in DDB
-    console.log('messageClick: ', id, index)
-    const messageDetails = {
-        id: id,
-        value: 1
-      };
+    // console.log('messageClick: ', id, index)
+    // const messageDetails = {
+    //     id: id,
+    //     value: 1
+    //   };
 
-    console.log('trying update/')
-    const updated = await API.graphql({
-        query: mutations.updateMessage,
-        variables: { input: messageDetails }
-    })
-    console.log('updated: ', updated)
+    // console.log('trying update/')
+    // const updated = await API.graphql({
+    //     query: mutations.updateMessage,
+    //     variables: { input: messageDetails }
+    // })
+    // console.log('updated: ', updated)
     // need to update the state of the emoji
 }
 
