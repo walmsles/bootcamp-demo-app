@@ -38,18 +38,18 @@ const emojis = [
 
 async function messageClick(id, index) {
     // need an endpoint to increment the valie of the emoji message in DDB
-    // console.log('messageClick: ', id, index)
-    // const messageDetails = {
-    //     id: id,
-    //     value: 1
-    //   };
+    console.log('messageClick: ', id, index)
+    const messageDetails = {
+        id: id,
+        value: 1
+      };
 
-    // console.log('trying update/')
-    // const updated = await API.graphql({
-    //     query: mutations.updateMessage,
-    //     variables: { input: messageDetails }
-    // })
-    // console.log('updated: ', updated)
+    console.log('trying update/')
+    const updated = await API.graphql({
+        query: mutations.updateMessage,
+        variables: { input: messageDetails }
+    })
+    console.log('updated: ', updated)
     // need to update the state of the emoji
 }
 
@@ -58,7 +58,7 @@ export default function ChannelCard({channel, messages}) {
     return (
         <div className='m-5' key={channel.id}>
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={`/${channel.name.toLowerCase()}.jpg`} />
+                <Card.Img variant="top" src={`/${channel.name.toLowerCase()}.png`} />
                 <Card.Body>
                     <Card.Title>{channel.name}</Card.Title>
                     <Card.Text>{channel.description}</Card.Text>

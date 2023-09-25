@@ -16,5 +16,26 @@
         "bcdemoapp": {}
       }
     }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bcdemoapp-dev-191313-authRole",
+      "UnauthRoleArn": "arn:aws:iam::308836149415:role/amplify-bcdemoapp-dev-191313-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::308836149415:role/amplify-bcdemoapp-dev-191313-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-bcdemoapp-dev-191313-deployment",
+      "UnauthRoleName": "amplify-bcdemoapp-dev-191313-unauthRole",
+      "StackName": "amplify-bcdemoapp-dev-191313",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:308836149415:stack/amplify-bcdemoapp-dev-191313/c3c64b60-5b83-11ee-90d9-0a130766f072",
+      "AmplifyAppId": "d1uk0dfj1pl6bg"
+    },
+    "categories": {
+      "auth": {
+        "bcdemoapp": {}
+      },
+      "api": {
+        "bcdemoapp": {}
+      }
+    }
   }
 }
