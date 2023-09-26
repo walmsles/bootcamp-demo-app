@@ -5,35 +5,35 @@ import React from 'react';
 
 
 const emojis = [
-    { 
-        icon:false,
+    {
+        icon: false,
         value: 0,
     },
-    { 
-        icon:'😎',
+    {
+        icon: '😎',
         text: 'We Got This!',
         value: 0,
     },
-    { 
-        icon:'🤯',
+    {
+        icon: '🤯',
         text: 'Brain ... hurts',
         value: 0,
     },
-    { 
-        icon:'😍',
+    {
+        icon: '😍',
         text: 'Loving it!',
         value: 0,
     },
-    { 
-        icon:'🙁',
+    {
+        icon: '🙁',
         text: 'Its hard',
         value: 0,
     },
-    { 
-        icon:'🙈',
+    {
+        icon: '🙈',
         text: 'Can\'t Look!',
         value: 0,
-    },  
+    },
 ];
 
 async function messageClick(id, index) {
@@ -42,19 +42,20 @@ async function messageClick(id, index) {
     const messageDetails = {
         id: id,
         value: 1
-      };
+    };
 
     console.log('trying update/')
-    const updated = await API.graphql({
-        query: mutations.updateMessage,
-        variables: { input: messageDetails }
-    })
+    // comment out to stop updates
+    // const updated = await API.graphql({
+    //     query: mutations.updateMessage,
+    //     variables: { input: messageDetails }
+    // })
     console.log('updated: ', updated)
     // need to update the state of the emoji
 }
 
-export default function ChannelCard({channel, messages}) {
-   
+export default function ChannelCard({ channel, messages }) {
+
     return (
         <div className='m-5' key={channel.id}>
             <Card style={{ width: '18rem' }}>
@@ -62,24 +63,24 @@ export default function ChannelCard({channel, messages}) {
                 <Card.Body>
                     <Card.Title>{channel.name}</Card.Title>
                     <Card.Text>{channel.description}</Card.Text>
-                    <ul className="list-group list-group-flush">  
+                    <ul className="list-group list-group-flush">
                         {
                             messages.map((message, index) => (
                                 message.channelID === channel.id && <li key={`${channel.id}-${index}`} className="list-group-item">
                                     {
-                                        emojis[message.message].icon &&                                  
-                                            <button
-                                                className='btn btn-light'
-                                                onClick={(e) => { messageClick(message.id, index)}}
-                                            >
-                                               <span className='fs-2'>{emojis[message.message].icon}</span><span className='mx-4 fs-2'>{message._version}</span>
-                                               <br/><span>{emojis[message.message].text}</span>
-                                            </button>
+                                        emojis[message.message].icon &&
+                                        <button
+                                            className='btn btn-light'
+                                            onClick={(e) => { messageClick(message.id, index) }}
+                                        >
+                                            <span className='fs-2'>{emojis[message.message].icon}</span><span className='mx-4 fs-2'>{message._version}</span>
+                                            <br /><span>{emojis[message.message].text}</span>
+                                        </button>
                                     }
                                 </li>
                             ))
-                        } 
-                 
+                        }
+
                     </ul>
                 </Card.Body>
             </Card>
